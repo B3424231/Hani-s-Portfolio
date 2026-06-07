@@ -539,6 +539,12 @@
   gap: 10px;
   overflow-x: auto;
   padding-bottom: 4px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.gallery-strip::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
 .gallery-strip button,
