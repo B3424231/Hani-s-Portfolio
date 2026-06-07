@@ -170,8 +170,8 @@ const fallbackPortfolio: PortfolioData = {
 }
 
 const defaultAdminLoginState = {
-  fullName: 'Honey Mariel Corpuz',
-  birthday: '2006-06-21',
+  fullName: '',
+  birthday: '',
 }
 
 async function apiJson<T>(url: string, options: RequestInit = {}): Promise<T> {
