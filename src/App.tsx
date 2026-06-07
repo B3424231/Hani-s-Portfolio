@@ -333,8 +333,30 @@ function ImagePlaceholder({
       {images.length > 1 ? (
         <div className="placeholder-gallery">
           <img className="gallery-main" src={images[activeIndex] ?? images[0]} alt={alt} />
+          <button
+            className="gallery-nav prev"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              setActiveIndex((i) => (i > 0 ? i - 1 : images.length - 1))
+            }}
+          >
+            &#10094;
+          </button>
+          <button
+            className="gallery-nav next"
+            type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              setActiveIndex((i) => (i < images.length - 1 ? i + 1 : 0))
+            }}
+          >
+            &#10095;
+          </button>
           <div className="gallery-strip">
-            {images.slice(0, 4).map((image, index) => (
+            {images.map((image, index) => (
               <button
                 type="button"
                 key={`${image}-${index}`}
@@ -348,7 +370,6 @@ function ImagePlaceholder({
                 <img src={image} alt="" />
               </button>
             ))}
-            {images.length > 4 && <span>+{images.length - 4}</span>}
           </div>
         </div>
       ) : images[0] ? (
